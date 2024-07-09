@@ -1,34 +1,29 @@
 
-import java.util.Scanner;
+import java.util.*;
 public class rough {
-    static int[] display(int rows,int col,int[][]a){
-        int[] sum=new int[rows];
-        for (int i=0;i<rows;i++){
-            int x=0;
-            for (int j=0;j<col;j++){
-                x+=a[i][j];
-            }
-            sum[i]=x;
+    static int[] reverse(int n,int[] a){
+        int[] b=new int[n];
+        int x=n-1;
+        int i=0;
+        while (x>=0){
+            b[i]=a[x];
+            x--;
+            i++;
         }
-        return sum;
+        
+        return b;
     }
     public static void main(String[] args) {
-        Scanner scanner=new Scanner (System.in);
-        int rows=scanner.nextInt();
-        int col=scanner.nextInt();
-        int [][] a=new int[rows][col];
-        for (int i=0;i<rows;i++){
-            for (int j=0;j<col;j++){
-                a[i][j]=scanner.nextInt();
-            }
+        Scanner sc=new Scanner (System.in);
+        int n=sc.nextInt();
+        int[] a=new int[n];
+        for (int i=0;i<n;i++){
+            a[i]=sc.nextInt();
         }
-        scanner.close();
-        int[] sum=display(rows,col,a);
-        for(int x:sum){
-            System.out.print(x+"");
+        int[] ans=reverse(n,a);
+        for (Integer r:ans){
+            System.out.print(r+" ");
         }
-
-        
     }
     
 }
